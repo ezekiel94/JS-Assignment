@@ -1,8 +1,10 @@
+// ASSIGNMENT 1
+
 //IF ELSE STATEMENT
 
 /*
 
-//Age Eligibility Checker: Determine if a person is eligible to vote based on their age.
+// Age Eligibility Checker: Determine if a person is eligible to vote based on their age.
 
 
 let displayAge = window.prompt(`Check Voting Age Eligibility`)
@@ -18,7 +20,7 @@ if(displayAge >= 18){
 
 /*
 
-//Even or Odd Number Identifier: Check if a given number is even or odd and display a message.
+// Even or Odd Number Identifier: Check if a given number is even or odd and display a message.
 
 let check = window.prompt(`Enter a number`)
 check = Number(check)
@@ -1665,9 +1667,758 @@ console.log(flatten)
 
 // ASSIGNMENT 3
 
+// How can you select an element by its ID using JavaScript?
+
+// const saveElement = document.getElementById()
+
+// How can you select all elements of a specific class name?
+
+// const saveElementTwo = document.getElementsByClassName()
+
+// How can you select the first child element of a given element?
+
+// const firstChild = saveElement.firstElementChild
+
+// How can you select all elements that match a specific CSS selector?
+
+// const allElementCssSelector = document.querySelectorAll()
+
+// How can you change the text content of an element?
+// changeText.innerText = `Hello`
+
+// How can you modify the value of an HTML attribute?
+// modifyHtml.innerHtml = `<p> Hello </p>`
+
+// How can you add a new element to the DOM?
+// const createNewElement = document.createElement()
+
+// How can you remove an element from the DOM?
+// const newElement = document.createElement()
+// newElement.remove()
+
+// How can you access the parent element of a given element?
+// const myButton = document.getElementById()
+// const myParent = myButton.parentElement
+
+// How can you access the next sibling element of a given element?
+// const headingElement = document.getElementById()
+// const afterSibling = headingElement.nextElementSibling
+
+
+// How can you iterate over all child elements of a given element?
+// let myContainer = document.getElementById()
+// let allChildren = myContainer.children
+
+// How can you find all elements matching a specific condition within a subtree?
+/*
+We can use the querySelectorAll to find all descendant elements matching the selector in the entire subtree, followed by filtering them based on the specific condition.
+*/
+
+// How can you change the inline style of an element using JavaScript?
+/*
+It can be change by directly accessing the style property of the element. We can then set the value of individual style properties using dot notation.
+
+// const element = document.getElementById('my-element');
+// element.style.backgroundColor = 'red';
+// element.style.fontSize = '1rem';
+*/
+
+// How can you you add or remove CSS classes from an element?
+// By using the Class List we can be able to addd a class name created by javascript, it also allows us to access the class behavior of an element for manipulation. Example;
+// let myContainer = document.getElementById(`newContainer`)
+// let newElement = document.createElement(`div`)
+// newElement.classList.add(`joseph-class`)
+
+// To remove CSS classes
+//newElement.classList.remove(`joseph-class`)
+
+// How can you toggle between two different styles for an element?
+// When a class name is not present, toggle method will add the class name but if the class name is present the toggle method will remove the class name. Example;
+// let myContainer = document.getElementById(`newContainer`)
+// let newElement = document.createElement(`div`)
+// newElement.classList.add(`joseph-class`)
+// newElement.classList.toggle(`joseph-class`)
+
+// How can you dynamically create and add a CSS stylesheet to the document?
+
+
+// Explain the syntax and purpose of the forEach method in JavaScript?
+/*
+The forEach method makes use of the callback function which accept up to three different arguments, but we have to understand not all of them are required. The forEach() array method loops through any array, carrying out a provided function once for each array element in ascending index order. This function is referred to as a callback function. The forEach() array iteration method accepts a callback function that holds arguments that can be used within the callback function for each array item, such as the array item, the index of the item, and the entire array.
+*/
+
+// How does forEach differ from traditional for loops in terms of scope and behavior?
+/*
+A forEach loop is a method available on arrays in JavaScript. It provides a simpler and more concise syntax for iterating over array elements. It takes a callback function as an argument and automatically handles the iteration for you. While a for loop is a traditional loop that allows you to control the iteration explicitly. It requires you to define a starting point, a condition for the loop to continue, and an operation to be performed after each iteration. One advantage of using a forEach loop is that you don't need to manually manage the index or handle the iteration logic yourself. It can also be easier to read and understand.
+*/
+
+// Write code to double each element in an array using forEach
+const theNumbers = [1, 2, 3];
+let doubled = [];
+
+
+theNumbers.forEach(function(num, index){
+    doubled[index] = num * 2
+});
+console.log(doubled);
+
+// Create a new array containing only strings from a mixed array using forEach.
+const arrayNewNumber1 = [1, 2, 3, 4, 5]
+const arrayNewNumber2 = [`london`, `berlin`, `abia`, `paris`, `togo`]
+
+const mixedTheNewArray = [...arrayNewNumber1, ...arrayNewNumber2]
+const stringNewArray = [];
+console.log(mixedTheNewArray)
+
+mixedTheNewArray.forEach(function(element){
+    if(typeof element === "string" ){
+        stringNewArray.push(element)
+    }
+})
+
+console.log(stringNewArray)
+
+// Filter an array to include only even numbers using forEach.
+
+const arrayOnlyEven = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let evenNumber = [];
+
+arrayOnlyEven.forEach(function(letDisplayThem){
+        
+    if(letDisplayThem % 2 == 0){
+        evenNumber.push(letDisplayThem) 
+    }
+})
+
+console.log(evenNumber)
+
+// Demonstrate how to access the current index within a forEach callback.
+
+const arrayOnlyEvenIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let evenNumbers = [];
+
+arrayOnlyEvenIndex.forEach(function(currentNumber, index) {
+    if (currentNumber % 2 === 0) {
+        evenNumbers.push({ number: currentNumber, index: index }); // Pushing an object containing both the number and its index
+    }
+});
+
+console.log(evenNumbers);
+
+// Explain how to break out of a forEach loop early
+/*
+We have to understand that the forEach loop in JavaScript does not support breaking out of the loop early using a break statement. However, we can achieve similar functionality by using some(), every(), or a simple for loop. But with a for loop , we are allow more flexibility in controlling the loop's behavior, including breaking out of the loop early.
+*/
+
+// Can you modify the original array directly within a forEach callback? Why or why not?
+/*
+No, you generally should not modify the original array directly within a forEach callback. Below is why:
+
+Potential Side Effects: Modifying the array while iterating over it can lead to unexpected behavior and bugs. Since forEach iterates over each element in the array sequentially, modifying the array's length or content during the iteration can result in elements being skipped or processed incorrectly.
+
+Mutability vs. Immutability: JavaScript arrays are mutable, meaning you can change their contents after they're created. However, modifying an array during iteration violates the principle of least surprise and can make your code harder to reason about. It's generally better to create a new array with the desired modifications instead of mutating the original array.
+
+Readability and Maintainability: Modifying the original array within a forEach callback can make your code less readable and harder to maintain. It's more straightforward for other developers (or yourself in the future) to understand the code's behavior if modifications to the array are performed outside the iteration.
+
+If you need to modify the array while iterating over it, consider using a traditional for loop instead of forEach. With a for loop, you have more control over the iteration process and can safely modify the array without encountering unexpected behavior. However, even with a for loop, it's essential to exercise caution and ensure that your modifications don't inadvertently affect the loop's behavior.
+*/
+
+// Describe common use cases for forEach in JavaScript applications.
+
+/*
+
+The forEach is a versatile method that simplifies array iteration and enables us to perform a wide range of operations efficiently in JavaScript applications. However, it's important to use forEach appropriately and be aware of its limitations, such as the inability to break out of the loop early or modify the original array safely.
+
+Here are some common use cases for forEach in JavaScript applications:
+
+Data Processing and Transformation: forEach is often used to process and transform data stored in arrays. We can apply operations to each element of the array individually, such as updating values, filtering elements, or performing calculations.
+
+Displaying Data in UI: When working with web applications, forEach can be used to iterate over arrays containing data retrieved from a server or stored locally and dynamically generate HTML elements to display the data in the user interface.
+
+Event Handling: In front-end development, forEach can be used to attach event listeners to multiple elements in the DOM. You can iterate over an array of DOM elements and attach event handlers to each element to handle user interactions, such as clicks or keyboard input.
+
+Asynchronous Operations: While forEach itself is synchronous, it can be useful in scenarios where we need to perform asynchronous operations for each element in an array. You can use forEach to iterate over an array and initiate asynchronous tasks within the callback function, such as making AJAX requests or fetching data from a database.
+
+Array Initialization and Population: forEach can be used to initialize or populate arrays with values based on certain criteria. We can iterate over existing arrays, apply conditions or transformations to the elements, and populate a new array with the modified values.
+
+Logging and Debugging: During development, forEach can be helpful for logging or debugging purposes. You can use it to iterate over arrays and log information about each element to the console for debugging purposes, such as inspecting the structure of complex data objects.
+*/
+
+// When would you choose forEach over other looping methods?
+/*
+forEach is a suitable choice when we need to iterate over an array and execute a callback function for each element, especially when simplicity, readability, and side effects are priorities. However, it's essential to consider your specific requirements and the characteristics of other looping methods before deciding which approach to use.
+*/
+
+// Explain the syntax and purpose of the for...of loop in JavaScript.
+/*
+
+The for...of loop in JavaScript is a convenient way to iterate over iterable objects, such as arrays, strings, sets, maps, and more. It provides a simpler syntax compared to traditional for loops and allows you to focus on the values of the iterable rather than managing indices or keys. 
+
+Example with Syntax
+
+const brillant = [1, 2, 3, 4, 5];
+
+for (const element of brillant) {
+    console.log(element); // Output: 1, 2, 3, 4, 5
+}
+
+variable: `element` A variable that will be assigned the value of each element in the iterable for each iteration.
+of: The keyword used to indicate the relationship between the variable and the iterable.
+iterable: `brillant` An object that can be iterated over, such as an array, string, set, map, or any other object that implements the iterable protocol.
+
+Purpose:
+
+Simplified Iteration: The primary purpose of the for...of loop is to simplify the process of iterating over iterable objects. It abstracts away the complexities of managing indices or keys, allowing you to focus directly on the values of the iterable.
+
+Readability and Conciseness: The syntax of the for...of loop is concise and easy to read, making your code more expressive and understandable. It eliminates the need for manual index management, reducing the likelihood of off-by-one errors and making your code cleaner.
+
+Compatible with Iterables: The for...of loop works with any object that implements the iterable protocol, including built-in JavaScript objects like arrays, strings, sets, and maps, as well as custom iterable objects. This makes it versatile and widely applicable in various programming scenarios.
+
+Avoids Mutating Iterators: Unlike forEach and other higher-order functions like map or filter, for...of loops do not mutate the original iterable. This can be beneficial when you want to iterate over an iterable without modifying it.
+
+Efficient Performance: The for...of loop generally offers good performance compared to other looping constructs in JavaScript, especially when iterating over large arrays or collections.
+
+*/
+
+// How does for...of differ from traditional for loops and forEach?
+
+/*
+
+Here's a summary of the differences between for...of loops, traditional for loops, and the forEach method in JavaScript:
+
+for...of Loop:
+
+Syntax: for (variable of iterable) 
+Purpose: Simplified iteration over iterable values.
+Use Cases: When you need to iterate over values of an iterable object without index management.
+
+Traditional for Loop:
+
+Syntax: for (initialization; condition; increment/decrement) 
+Purpose: Manual control over iteration with index management.
+Use Cases: When you need precise control over loop behavior, such as iterating over a range of indices or performing complex looping patterns.
+
+forEach Method:
+
+Syntax: array.forEach(callbackFunction)
+Purpose: Apply a callback function to each element of an array.
+Use Cases: Executing a function for each element of an array, especially in functional programming contexts.
+
+Differences:
+
+Syntax: for...of and forEach offer more concise syntax compared to traditional for loops.
+Control: Traditional for loops provide more control over iteration, including manual index management and custom logic.
+Mutability: for...of and forEach do not mutate the original iterable, while traditional for loops allow direct manipulation of elements.
+Use Cases: Each iteration method has its own strengths and is suited for different scenarios, from simplified iteration to precise control and functional programming paradigms.
+
+*/
+
+// Iterate over an array of numbers and print their squares using for...of.
+
+const tryNumbers = [1, 2, 3, 4, 5];
+for (const viewIt of tryNumbers) {
+    const square = viewIt * viewIt;
+    console.log(`The square of ${viewIt} is ${square}`);
+}
+
+// This code iterates over each element (viewIt) in the tryNumbers array. For each element, it calculates the square by multiplying the tryNumbers by itself (viewIt * viewIt) and then logs the result using console.log().
+
+
+// Create a new array containing the string lengths of each element in another array using for...of.
+
+const myStrings = ["apple", "banana", "cherry", "date", "pounded yam"];
+const theStringLengths = [];
+
+for (const result of myStrings) {
+    theStringLengths.push(result.length);
+}
+
+console.log(theStringLengths); 
+
+// Iterate over the keys of an object using for...of.
+
+const myDetails = {
+        name : "Adeyemi",
+        country : "Nigeria",
+        gender : "Male",
+        education : "Masters of Science",
+        bvnNumber : 345678,
+    }
 
 
 
+
+for(const result of Object.keys(myDetails)){
+    console.log(result)
+}
+
+// Iterate over the values of an object using for...of.
+
+const checkMyDetails = {
+    name : "Doyin",
+    country : "Ghana",
+    gender : "Female",
+    bvnNumber : 845678,
+}
+
+
+
+
+for(const displayResult of Object.values(checkMyDetails)){
+    console.log(displayResult)
+}
+
+
+// Explain how to access both keys and values in a for...of loop.
+
+
+
+const ourDetails = {
+    name : "Victoria",
+    country : "Canada",
+    gender : "Female",
+    bankNumber : 120803033,
+    accountBalance : "$2344324"
+}
+
+
+for(const theKey of Object.getOwnPropertyNames(ourDetails)){
+    const theValue = ourDetails[theKey]
+    console.log(`Key: ${theKey}, Value: ${theValue}`);
+}
+
+// Can you modify the original array or object within a for...of loop?
+
+/*You can modify the elements of an array while iterating over it using a for...of loop. However, you should be cautious about adding or removing elements from the array, as it can affect the loop's behavior and potentially lead to unexpected results, such as skipping elements or infinite loops. Here is an example;
+
+
+let textingArrays = [1, 2, 3, 4, 5, 6];
+
+for (let confirmResult of textingArrays){
+    if(confirmResult % 2 === 0){
+        textingArrays.push(confirmResult * 2); // Modifying the array by adding new elements
+    }
+}
+console.log(textingArrays)
+
+*/
+
+// Describe common use cases for for...of loops in JavaScript applications.
+
+/*
+The for...of loops in JavaScript is very versatile and is commonly used for iterating over iterable objects. Here are some common use cases:
+
+- Iterating Over Arrays: This is perhaps the most common use case. You can use for...of to loop through arrays to access each element individually.
+
+const array = [1, 2, 3, 4, 5];
+for (const element of array) {
+    console.log(element);
+}
+
+- Iterating Over Strings: Strings are iterable in JavaScript. You can use for...of to iterate over each character in a string.
+
+const str = "Hello";
+for (const char of str) {
+    console.log(char);
+}
+
+- Iterating Over Maps: for...of loops can iterate over the entries of a Map, providing both the key and value.
+
+const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
+for (const [key, value] of map) {
+    console.log(key, value);
+}
+
+- Iterating Over Sets: Sets store unique values. You can use for...of to iterate over each value in a Set.
+
+const set = new Set([1, 2, 3, 4, 5]);
+for (const value of set) {
+    console.log(value);
+}
+
+- Iterating Over DOM Collections: for...of can be used to iterate over DOM collections like NodeList.
+
+const elements = document.querySelectorAll('.some-class');
+for (const element of elements) {
+    console.log(element);
+}
+
+*/
+
+// When would you choose for...of over other looping methods?
+/*
+Here are some scenarios where for...of might be preferred over other looping methods:
+
+- Working with iterable objects like arrays, strings, maps, sets, or generator functions.
+- Needing to access both keys and values when iterating over objects.
+- Wanting to avoid index management, as for...of abstracts it away.
+- Dealing with asynchronous iterables or generator functions.
+- Readability is important, as for...of often results in cleaner code.
+- Using break or continue statements within the loop body is necessary.
+
+*/
+
+// Write a for loop that prints numbers from 1 to 10.
+
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+// Write a for loop that sums all numbers in an array.
+
+const loopNumbers = [1, 2, 3, 4, 5];
+let allSum = 0;
+
+for (let f = 0; f < loopNumbers.length; f++) {
+    allSum += loopNumbers[f];
+}
+
+console.log("The sum of all numbers:", allSum);
+
+// Find the largest number in an array using a for loop.
+
+const largeNumbers = [10, 5, 20, 8, 15];
+
+let largest = largeNumbers[0]; // Assume the first element is the largest
+
+for (let i = 1; i < largeNumbers.length; i++) {
+    if(largeNumbers[i] > largest) {
+        largest = largeNumbers[i];
+    }
+}
+
+console.log("The largest number:", largest);
+
+// Create a new array containing the squares of numbers in another array using a for loop.
+
+const checkArray = [10,12,14,16,18,20]
+let squares = []
+
+for(i = 0; i < checkArray.length; i++){
+    squares.push(checkArray[i] * checkArray[i])
+}
+
+console.log("The square numbers for the numbers in the checkArray are :", squares)
+
+// Iterate over an object's properties and values using a for loop.
+
+const containerForTheTestedObject = [
+    {
+        name : "Peter Obi",
+        party : "Labour Party",
+        
+    },
+    {
+        name : "Atiku Abubakar",
+        party : "People Democratic Party",
+        
+    },
+    {
+        name : "Tinubu",
+        party : "All Progressive Congress",
+        
+    }
+]
+
+
+
+for(i = 0; i < containerForTheTestedObject.length; i++){
+
+    let confirmTheResult = containerForTheTestedObject[i]
+    console.log(confirmTheResult)
+}
+
+// Explain the difference between initial, conditional, and increment expressions in for loops.
+
+/*
+
+- Initialization Expression: This is the initial statement executed before the loop starts. It is typically used to initialize the loop control variable.
+
+- Conditional Expression: This expression is evaluated before each iteration of the loop. If the result is true, the loop continues; otherwise, the loop terminates.
+
+- Increment (or Decrement) Expression: This expression is executed at the end of each iteration of the loop. It is commonly used to modify the loop control variable to progress towards the loop termination condition.
+
+*/
+
+// Demonstrate how to nest for loops to create multidimensional arrays.
+
+// Define the number of rows and columns
+const rows = 3;
+const columns = 4;
+
+// Create a multidimensional array using nested for loops
+const multiArray = [];
+
+for(let i = 0; i < rows; i++){
+  multiArray[i] = []; // Initialize each row as an empty array
+
+  for (let j = 0; j < columns; j++) {
+    multiArray[i][j] = i * columns + j; // Assign a value based on row and column
+  }
+
+}
+
+console.log(multiArray);
+
+
+// Break out of a for loop early using the break statement.
+
+
+const breakNumbers = [10, 5, 18, 2, 7, 20, 100];
+
+for (let i = 0; i < breakNumbers.length; i++) {
+  if (breakNumbers[i] > 30) {
+    console.log("Found a number greater than 30:", breakNumbers[i]);
+    break; // Exit the loop after finding the first number greater than 30
+  }
+}
+
+// Continue to the next iteration of a for loop using the continue statement.
+
+const continueNumbers = [1, 2, 3, 4, 5, 6];
+
+for (let i = 0; i < continueNumbers.length; i++) {
+  if (continueNumbers[i] % 2 === 0) { // Check for even numbers
+    // console.log("Skipping even number:", continueNumbers[i]);
+    continue; // Skip processing the current even number and move to the next iteration
+  }
+  // This part will only be executed for odd numbers
+  console.log("Processing odd number:", continueNumbers[i]);
+}
+
+
+// Describe common use cases for for loops in JavaScript applications.
+
+/*
+
+Here's a concise summary of common use cases for for loops in JavaScript applications:
+
+- Iterating Over Arrays: Use for loops to iterate over the elements of an array, performing operations on each element.
+
+- Generating Number Sequences: for loops can generate number sequences, aiding in algorithms and mathematical calculations.
+
+- Iterating Over Object Properties: While for...in and for...of loops are preferred for object iteration, for loops can still be used to iterate over object properties.
+
+- Nested Loops: for loops can be nested to handle tasks requiring multiple levels of iteration, like multi-dimensional arrays or matrices.
+
+- Looping with a Step: Configure for loops to iterate with a step other than 1, allowing skipping elements or backward iteration.
+
+- Performing Asynchronous Operations: In asynchronous programming, for loops are used to iterate over asynchronous tasks, such as fetching data from APIs or processing items in queues.
+
+*/
+
+// Select an element by its ID using getElementById.
+/*
+const selectElement = document.getElementById('my-element-id');
+*/
+
+// Select all elements of a specific class name using getElementsByClassName.
+/*
+const elements = document.getElementsByClassName('my-class-name');
+*/
+
+// Select the first child element of a given element using firstChild.
+/*
+const parentElement = document.getElementById('my-parent-element'); // Assuming the parent element has an ID
+const firstChildElement = parentElement.firstElementChild;
+*/
+
+// Select all elements that match a specific CSS selector using querySelector.
+/*
+const selectTheElements = document.querySelectorAll('your-css-selector');
+*/
+
+// Access the parent element of a given element using parentNode.
+/*
+const newElement = document.getElementById('my-element'); // Assuming the element has an ID
+const accessingParentElement = newElement.parentNode;
+*/
+
+// Access the next sibling element of a given element using nextSibling.
+/*
+const siblingElement = document.getElementById('my-element'); // Assuming the element has an ID
+let nextSibling = siblingElement.nextSibling;
+*/
+
+// Iterate over all child elements of a given element using childNodes.
+/*
+const element = document.getElementById('my-element'); // Assuming the element has an ID
+*/
+
+// Access child nodes (including text and comments) & Iterate through child nodes, filtering for elements
+/*
+const childNodes = element.childNodes;
+
+for (let i = 0; i < childNodes.length; i++) {
+  const childNode = childNodes[i];
+  if (childNode.nodeType === Node.ELEMENT_NODE) {
+    // You can now access and modify the child element
+    console.log(childNode.tagName); // Example: Get child element's tag name
+    childNode.style.color = 'blue'; // Example: Set text color
+  }
+}
+*/
+
+// Find all elements matching a specific condition within a subtree using a recursive function.
+/*
+
+function findElements(rootNode, condition) {
+   
+    This function recursively searches a tree-like structure (represented by DOM nodes)
+    and returns a list of all elements that meet the specified condition.
+  
+    Args:
+        rootNode: The root node of the subtree (a DOM node).
+        condition: A function that takes a node (DOM node) and returns True if it matches the condition.
+  
+    Returns:
+        A list of all nodes in the subtree that meet the condition.
+   
+
+    const matchingElements = [];
+  
+    // Check the root node itself
+    if (condition(rootNode)) {
+      matchingElements.push(rootNode);
+    }
+  
+    // Iterate through child nodes (if any)
+    for (const childNode of rootNode.children) {
+      matchingElements.push(...findElements(childNode, condition)); // Recursive call
+    }
+  
+    return matchingElements;
+  }
+  */
+
+  // Example usage: Find all elements with a specific class name
+  /*
+const rootElement = document.body; // Assuming the search starts from body
+const matchingElements = findElements(rootElement, (element) => element.classList.contains('special-class'));
+*/
+
+// Explain the difference between childNodes, children, and getElementsByTagName.
+/*
+
+childNodes: Access all child nodes of an element (elements, text, comments).
+children: Access only the direct element children of an element.
+getElementsByTagName: Find all elements with a specific tag name across a document or subtree.
+
+Returned Nodes:
+
+childNodes: Includes all types of child nodes.
+children: Limited to element nodes.
+getElementsByTagName: Limited to element nodes matching the specified tag name.
+
+Order:
+
+childNodes & children: Nodes appear in the order they are defined in the HTML (top to bottom).
+getElementsByTagName: Elements appear in the order they are found in the document, not necessarily following parent-child relationships.
+
+Live Collection:
+
+childNodes & children: Changes to the DOM are reflected in the collection.
+getElementsByTagName: The collection is static and doesn't reflect DOM changes automatically.
+
+Choosing the Right Method:
+
+Use childNodes for all child node types (including text and comments) and live updates.
+Use children for direct element children and live updates.
+Use getElementsByTagName to find elements by tag name across the document (static collection).
+*/
+
+// Demonstrate how to modify element content (text and attributes) using DOM manipulation.
+
+ // Select the element to be modified
+ const exampleElement = document.getElementById("exampleElement")
+ const exampleText = document.getElementById("exampleText");
+ const exampleImage = document.getElementById("exampleImage");
+ const newContainer = document.getElementById("empty-container")
+ const myContainer = document.getElementById(`newContainer`)
+
+ // Modify text content
+ exampleText.textContent = "Modified Text Content";
+
+ // Modify attribute (src) of an image
+ exampleImage.src = "./image/GIwQxwVbAAAaRRp.jpeg";
+ exampleImage.style.width = "100%"
+ exampleImage.alt = "Modified Image Alt Text";
+
+// Add a new element to the DOM using createElement and appendChild.
+const createDiv = document.createElement("div")
+createDiv.setAttribute("class", "new-me")
+createDiv.innerHTML = "<p> hello new family</p>"
+createDiv.style.fontSize = "3rem"
+createDiv.style.color = "red"
+
+
+const newDiv = document.createElement("div")
+newDiv.setAttribute("class", "my-new.div")
+newDiv.setAttribute("id", "my-new.div")
+newDiv.innerHTML = "<p>Welcome here, do you like our image</p>"
+
+
+exampleElement.append(createDiv)
+newContainer.append(newDiv)
+
+
+// Remove an element from the DOM using removeChild.
+exampleElement.lastElementChild.remove()
+// Change the inline style of an element using style.
+newDiv.style.backgroundColor = "black"
+// newDiv.style.padding = "1rem"
+newDiv.firstChild.style.color = "white"
+newDiv.style.borderRadius = "1rem" 
+newDiv.firstChild.style.textAlign = "center";
+newContainer.style.width = "100%"
+newDiv.style.width = "30%"
+newDiv.style.padding = "1rem"
+newDiv.style.margin = "2rem auto"
+
+// Add or remove CSS classes from an element using classList.
+
+const newElement = document.createElement(`div`)
+newElement.classList.add(`joseph-class`)
+
+myContainer.append(newElement)
+
+// Toggle between two different styles for an element using JavaScript.
+
+const element = document.getElementById('my-element'); // Assuming the element has an ID
+const style1Class = 'style-1'; // Class name for first style
+const style2Class = 'style-2'; // Class name for second style
+
+element.addEventListener('click', () => {
+  element.classList.toggle(style1Class);
+  element.classList.toggle(style2Class);
+});
+
+
+
+
+// Use a for loop to create 10 new paragraph elements and append them to the body of the document.
+
+for (let i = 0; i < 10; i++) {
+    // Create a new paragraph element
+    const newParagraph = document.createElement("p");
+
+    // Set the text content of the paragraph
+    newParagraph.textContent = "Paragraph" + (i + 1);
+
+    // Append the new paragraph to the body
+   document.body.appendChild(newParagraph);
+}
+
+
+// Use forEach to iterate over all images on a page and add a border to each one.
+
+/*
+const images = document.querySelectorAll('img'); // Select all images
+
+images.forEach(image => {
+  image.style.border = '2px solid black'; // Set border style
+});
+*/
 
 
 

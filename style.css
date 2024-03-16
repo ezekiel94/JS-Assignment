@@ -7,3 +7,28 @@
     font-family: 'Bricolage Grotesque', sans-serif;
 }
 
+
+.check-button{
+    width: 100%;
+    height: fit-content;
+    padding: 10rem;
+}
+
+button{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    
+}
+.style-1 {
+    /* Styles for the first style */
+    background-color: red;
+    color: white;
+  }
+
+.style-2 {
+    /* Styles for the second style */
+    background-color: blue;
+    color: white;
+  }
